@@ -1,0 +1,325 @@
+body {
+	font-family: Helvetica, Arial;
+	color: #36393c;
+}
+
+header {
+	float: left;
+	background-color: #79BD9A;
+	width: 100%;
+}
+
+header p {
+	float: right;
+}
+
+a {
+	color: #FFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #FFF;
+	background: #0B486B;
+	padding: 20px 5px;
+}
+
+#logo {
+	float: left;
+	width: 40%;
+	height: 70%;
+	display: block;
+}
+
+nav {
+	float: right;
+	padding: 20px;
+}
+
+#menu-icon {
+	display: hidden;
+	width: 35px;
+	height: 35px;
+	background: url(../img/menu-icon.png) center;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	display: inline-block;
+	float: left;
+	padding: 10px;
+}
+
+footer {
+	background-color: #3B8686;
+	color: white;
+	text-align: center;
+	padding: 5px;
+	clear: both;
+}
+
+h2 {
+	text-align: center;
+	padding: 10px;
+}
+
+h1 {
+	text-align: center;
+	padding: 5px 0;
+}
+
+p {
+	text-align: justify;
+}
+
+
+/* MEDIA QUERY IPHONE 5 */
+@media only screen and (max-width: 480px) {
+
+	#menu-icon {
+		display:inline-block;
+	}
+	
+	nav ul {
+		display: none;
+		position: absolute;
+		right: 20px;
+		top: 60px;
+		padding: 20px;
+		background: #fff;
+		width: 20%;
+	}
+		
+	nav li {
+		text-align: left;
+		width: 100%;
+		padding: 10px 0px;
+		margin: 0;
+	}
+	
+	nav:hover ul {
+		display: block;
+	}
+	
+	nav li a {
+		color: #3B8686;
+	}
+	
+	img {
+		width: 100%;
+	}
+	
+	.depoimentos {
+    	box-shadow: 10px 10px 5px #888888;
+    	border-radius: 5px;
+    	width: 95%;
+    	padding-right: 10px;
+	}
+	
+	#nav-footer {
+		display: none;
+	}
+
+	#copyright p {
+		text-align: center;
+	}
+
+	#slogan {
+		margin-right: 10px;
+		font-weight: bold;
+		letter-spacing: 4px;
+	}
+	
+	.button {
+	    background-color: #79BD9A; 
+	    border: none;
+	    color: white;
+	    padding: 10px 25px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 12px;
+		margin-bottom: 5px;
+	}
+}
+
+/* MEDIA QUERY IPAD */
+@media only screen and (min-width: 481px) {
+	#menu-icon {
+		display: hidden;
+	}
+	
+	body {
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	header {
+		height: 200px;
+	}
+	
+	section {
+		clear: both;
+	}
+	
+	#planos1, #planos2 {
+		border: 4px solid #ccc;
+	}
+	
+	#prom1, #prom2 {
+		width: 48%;
+		float: left;
+		margin-left: 10px;
+		border: 1px solid #ccc;
+		
+	}
+	
+	#gerais1, #gerais2, #gerais3 {
+		float:left;
+		width: 32%;
+		margin-left: 5px;
+		height: 385px;
+		border: 1px solid #ccc;
+	}
+	
+	img {
+		width: 80%;
+		height: 80%;
+		margin: 0 auto;
+		padding: 0;
+		margin-top: 1px;
+		display: block;
+		
+	}
+	
+	.depoimentos {
+    	box-shadow: 3px 3px 3px #888888;
+    	border-radius: 5px;
+    	width: 48%;
+		float: left;
+    	margin: 0 0 15px 15px;
+	}
+	
+	#serv-img1, #serv-img2, #planos-img1, #planos-img2, #detalhes, #detalhes-foto {
+	    width: 48%;
+	    float: left;
+	    margin-top: 10px;
+	    margin-bottom: 10px;
+		margin-left: 10px;
+		height: 250px;
+	}	
+	
+	#sobre-img {
+		width: 100%;
+	    float: left;
+	    margin-top: 10px;
+	    margin-bottom: 10px;
+		margin-left: 10px;
+		height: 250px;
+	}
+	
+	footer {
+		height: 200px;
+		clear: both;
+	}
+	
+	#slogan {
+		margin-right: 1px;
+		font-weight: bold;
+		letter-spacing: 7px;
+	}
+	
+	#direito {
+		text-align: center;
+	}
+	
+	.button {
+	    background-color: #79BD9A; 
+	    border: none;
+		border-bottom: 5px;
+	    color: white;
+	    padding: 15px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+		margin-top: 162px;
+	}
+	
+	#bt-contato {
+	    background-color: #79BD9A; 
+	    border: none;
+		border-bottom: 5px;
+	    color: white;
+	    padding: 15px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	}
+	
+	#contato {
+		width: 100%;
+		float: left;
+		clear: both;
+		height: 500px;
+	}
+	
+	input[type=text], textarea {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+	}
+}
+
+/* MEDIA QUERY PC */
+@media only screen and (min-width: 960px) {
+	body {
+		width: 960px;
+	}
+
+	#contato {
+		width: 100%;
+		float: left;
+		clear: both;
+		height: auto;
+	}
+
+	#informacoes {
+		clear: both;
+		width: 100%;
+	}
+
+	input[type=text], textarea {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+	}
+
+	.button {
+	    background-color: #79BD9A; 
+	    border: none;
+	    color: white;
+	    padding: 15px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	}
+	
+	#direito {
+		text-align: center;
+	}
+}
