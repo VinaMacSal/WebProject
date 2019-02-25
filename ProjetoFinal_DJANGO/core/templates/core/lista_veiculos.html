@@ -1,0 +1,17 @@
+<h2>Lista Veiculos</h2>
+
+<ul>
+{% for veiculo in veiculos %}
+	<li>Marca: {{veiculo.marca}}</li>
+	<li>Placa: {{veiculo.placa}}</li> 
+	<li>Cor: {{veiculo.cor}}</li>
+	<li>Obs: {{veiculo.observacoes}}</li>
+	<li>Proprietário: {{veiculo.proprietario}}</li>
+	<hr>	
+{% endfor %}
+</ul>
+<form action="{% url 'core_cadastra_veiculos' %}" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Cadastrar</button>
+</form>

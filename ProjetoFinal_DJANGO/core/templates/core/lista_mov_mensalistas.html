@@ -1,0 +1,10 @@
+<h2>Lista Movimento Mensalistas</h2>
+
+<ul>
+{% for mensal in mov_mensalistas %}
+	<li>{{mensal.mensalista}}</li>
+	<li>{{mensal.dt_pgto}}</li> 
+	<li>{{mensal.total}}</li>
+	<hr>	
+{% endfor %}
+</ul>

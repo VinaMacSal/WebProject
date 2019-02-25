@@ -23,7 +23,7 @@ class Veiculo(models.Model):
 	placa = models.CharField(max_length=7)
 	cor = models.CharField(max_length=15)
 	observacoes = models.TextField()
-	prorpietario = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+	proprietario = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.placa + " - " + self.marca.nome
@@ -44,14 +44,18 @@ class MovRotativo(models.Model):
 	veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
 	pago = models.BooleanField(default=False)
 
+	
 	def horas_total(self):
-		return math.ceil(
-			(self.checkout - self.checkin).total_seconds() / 3600
-		)
+		try:
+			return math.ceil((self.checkout - self.checkin).total_seconds() 
+				/ 3600)
+		except TypeError as e:
+			return 0	
+		
 
 	def total(self):
 		return self.valor_hora * self.horas_total()
-
+	
 
 class Mensalista(models.Model):
 	veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)

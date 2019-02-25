@@ -1,0 +1,24 @@
+<h2>Lista Movimento Rotativos</h2>
+
+<ul>
+{% for rotativo in mov_rotativos %}
+	<li>Entrada: {{rotativo.checkin}}</li>
+	<li>Saida: {{rotativo.checkout}}</li> 
+	<li>Valor Hora: {{rotativo.valor_hora}}</li>
+	<li>Placa: {{rotativo.veiculo}}</li>
+	{% if rotativo.pago %}
+	<li>Pago</li>
+	{% else %}
+	<li>Não Pago</li>
+	{% endif %}
+	<li>Total: {{rotativo.total}}</li>
+	<li>Horas: {{rotativo.horas_total}}</li>
+	<hr>	
+{% endfor %}
+</ul>
+
+<form action="{% url 'core_cadastra_mov_rotativos' %}" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Cadastrar</button>
+</form>
