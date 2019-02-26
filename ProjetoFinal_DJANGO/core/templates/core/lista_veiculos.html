@@ -1,13 +1,11 @@
-<h2>Lista Veiculos</h2>
-
+<h2>Lista Veículos</h2>
 <ul>
 {% for veiculo in veiculos %}
-	<li>Marca: {{veiculo.marca}}</li>
-	<li>Placa: {{veiculo.placa}}</li> 
-	<li>Cor: {{veiculo.cor}}</li>
-	<li>Obs: {{veiculo.observacoes}}</li>
-	<li>Proprietário: {{veiculo.proprietario}}</li>
-	<hr>	
+<li>
+	<a href="{% url 'core_update_veiculos' veiculo.id %}">
+	{{ veiculo.placa }}</a>
+</li>
+<hr>	
 {% endfor %}
 </ul>
 <form action="{% url 'core_cadastra_veiculos' %}" method="POST">

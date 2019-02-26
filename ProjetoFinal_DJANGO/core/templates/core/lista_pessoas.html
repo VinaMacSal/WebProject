@@ -1,11 +1,11 @@
 <h2>Lista Pessoas</h2>
-
 <ul>
 {% for pessoa in pessoas %}
-	<li>{{pessoa.nome}}</li>
-	<li>{{pessoa.endereco}}</li> 
-	<li>{{pessoa.telefone}}</li>
-	<hr>	
+<li>
+	<a href="{% url 'core_update_pessoas' pessoa.id %}">
+	{{ pessoa.nome }}</a>
+</li>
+<hr>	
 {% endfor %}
 </ul>
 <form action="{% url 'core_cadastra_pessoas' %}" method="POST">

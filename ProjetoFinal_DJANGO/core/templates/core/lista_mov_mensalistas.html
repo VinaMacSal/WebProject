@@ -1,10 +1,16 @@
 <h2>Lista Movimento Mensalistas</h2>
-
 <ul>
 {% for mensal in mov_mensalistas %}
-	<li>{{mensal.mensalista}}</li>
-	<li>{{mensal.dt_pgto}}</li> 
-	<li>{{mensal.total}}</li>
-	<hr>	
+<li>
+	<a href="{% url 'core_update_mov_mensalistas' mensal.id %}">
+	{{ mensal.mensalista }}</a>
+</li>
+<hr>	
 {% endfor %}
 </ul>
+
+<form action="{% url 'core_cadastra_mov_mensalistas' %}" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Cadastrar</button>
+</form>
