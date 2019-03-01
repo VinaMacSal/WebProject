@@ -1,15 +1,31 @@
-<h2>Lista Veículos</h2>
-<ul>
-{% for veiculo in veiculos %}
-<li>
-	<a href="{% url 'core_update_veiculos' veiculo.id %}">
-	{{ veiculo.placa }}</a>
-</li>
-<hr>	
-{% endfor %}
-</ul>
-<form action="{% url 'core_cadastra_veiculos' %}" method="POST">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Cadastrar</button>
-</form>
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block main %}
+<div class="row mb-3">
+	<div class="col-sm-12 text-center">
+		<h2>Lista Veículos</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-8 table table-bordered pt-1 pb-1 border border-primary"
+	style="max-height: 695px">
+		<form class="" action="{% url 'core_cadastra_veiculos' %}" 
+		method="POST">
+		{% csrf_token %}
+		{{ form|bootstrap }}
+			<button class="btn btn-primary" 
+			type="submit">Cadastrar</button>
+		</form>
+	</div>
+	<div class="col-sm-4 pt-1 text-center">
+		<div class="list-group">
+			{% for veiculo in veiculos %}
+			<a href="{% url 'core_update_veiculos' veiculo.id %}" class="list-group-item list-group-item-action btn btn-primary"
+			role="button" aria-pressed="true">
+   			{{ veiculo }}
+  			</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
