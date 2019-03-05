@@ -6,15 +6,109 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" 
-	href="{% static 'bootstrap/bootstrap.css'%}"> 
+	href="{% static 'bootstrap/bootstrap.css'%}">
+	<meta name="description" content="Estacionamento 24 horas">
+	<meta name="keywords" content="Estacionamento,24 horas, carros, motos, mensalista">
+	<meta name="author" content="Vinicius de Macedo Salmoria">
+	<meta name="robots" content="index, follow"> 
 	<title>Estacionamento Fácil</title>
 </head>
-<body>	
+<body>
+<div class="container border border-dark rounded">
+<header>
+	<div class="row align-items-center" style="background-color: #3B8686">
+		<div class="col-sm-6 col-12">
+			<img class="img-fluid" src="{% static 'img/logo.png' %}" alt="logo">
+		</div>
+		<div class="col-sm-6 col-12 text-center">
+			<h1>Estacionamento Fácil</h1>
+			<p>O melhor estacionamento 24 Horas da Cidade</p>
+		</div>
+	</div>	
+	<div class="row pb-3 pt-3 d-block d-sm-none mb-1" style="background-color: #3B8686">
+		<div class="col-12 text-center">		
+			<ul class="nav nav-tabs nav-justified">
+ 				<li class="nav-item dropdown">
+    				<a class="nav-link dropdown-toggle btn btn-outline-primary active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+    					<div class="dropdown-menu text-center">
+		     				<a class="dropdown-item" href="{% url 'website_home' %}">Home</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_planos' %}">Planos</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_servicos' %}">Serviços</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_contato' %}">Contato</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_sobre' %}">Sobre</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="/accounts/login">Sistema
+		      				Administrativo</a>
+						</div>
+  					</li>
+  				</ul>
+			</div>
+		</div>
+	<div class="row pb-3 pt-3 border-top border-bottom border-dark d-none d-sm-block"
+	style="background-color: #3B8686">
+		<div class="col-sm-12 text-center mt-1 mb-1">
+			<a class="btn btn-primary" href="{% url 'website_home' %}">Home</a>
+  			<a class="btn btn-primary" href="{% url 'website_planos' %}">Planos</a>
+  			<a class="btn btn-primary" href="{% url 'website_servicos' %}">Serviços</a>
+  			<a class="btn btn-primary" href="{% url 'website_contato' %}">Contato</a>
+  			<a class="btn btn-primary" href="{% url 'website_sobre' %}">Sobre</a>
+  			<a class="btn btn-warning" href="/accounts/login">Sistema Administrativo</a>
+		</div>
+	</div>
+</header>
 	{% block main %}
 	{% endblock %}
+<footer>
+	<div class="row pb-3 pt-3 d-block d-sm-none" style="background-color: #3B8686" >
+		<div class="col-12 text-center">		
+			<ul class="nav nav-tabs nav-justified">
+ 				<li class="nav-item dropdown">
+    				<a class="nav-link dropdown-toggle btn btn-outline-primary active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+    					<div class="dropdown-menu text-center">
+		     				<a class="dropdown-item" href="{% url 'website_home' %}">Home</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_planos' %}">Planos</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_servicos' %}">Serviços</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_contato' %}">Contato</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="{% url 'website_sobre' %}">Sobre</a>
+		      				<div class="dropdown-divider"></div>
+		      				<a class="dropdown-item" href="/accounts/login">Sistema
+		      				Administrativo</a>
+						</div>
+  					</li>
+  				</ul>
+			</div>
+		</div>
+	<div class="row pb-3 pt-3 border-top border-bottom border-dark d-none d-sm-block" style="background-color: #3B8686">
+		<div class="col-sm-12 text-center mt-1 mb-1">
+			<a class="btn btn-primary" href="{% url 'website_home' %}">Home</a>
+  			<a class="btn btn-primary" href="{% url 'website_planos' %}">Planos</a>
+  			<a class="btn btn-primary" href="{% url 'website_servicos' %}">Serviços</a>
+  			<a class="btn btn-primary" href="{% url 'website_contato' %}">Contato</a>
+  			<a class="btn btn-primary" href="{% url 'website_sobre' %}">Sobre</a>
+  			<a class="btn btn-warning" href="/accounts/login">Sistema Administrativo</a>
+		</div>
+	</div>
+	<div class="row pb-3 pt-3" style="background-color: #3B8686">
+		<div class="col-sm-12 text-center">
+			<p>Copyright - Todos os direitos reservados</p>
+			<p>Desenvolvido por Vinicius de Macedo Salmoria</p>
+		</div>
+		
+	</div>
+
+</footer>
 	<script src="{% static 'bootstrap\jquery-slim.min.js' %}">
 	</script>
 	<script src="{% static 'bootstrap\popper.min.js' %}"></script>
 	<script src="{% static 'bootstrap\bootstrap.js' %}"></script>
+</div>
 </body>
 </html>
