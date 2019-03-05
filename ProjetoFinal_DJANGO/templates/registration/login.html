@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block main %}
+{% if form.errors %}
+<p class="alert-warning">Usuário e senham não correspondem. Tente novamente.</p>
+{% endif %}
+{% if next %}
+{% if user.is_authenticated %}
+<p class="alert-danger">Seu usuário não possui acesso ao sistema. Para continuar, informe um usuário que possua autorização.</p>
+{% else %}
+<p class="alert-warning">Por favor efetuar login para acesso a página.</p>
+{% endif %}
+{% endif %}
+<div class="row">
+    <div class="col-sm-12 text-center d-flex justify-content-center">
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+            <input type="submit" class="btn btn-primary"
+            role="button" aria-pressed="true" value="Login">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+    <div class="col-sm-12 text-center ">
+    {# Assumes you setup the password_reset view in your URLconf #}
+        <p><a href="{% url 'password_reset' %}">Esqueceu a senha?
+        </a></p>
+   </div>
+</div>
+{% endblock %}
