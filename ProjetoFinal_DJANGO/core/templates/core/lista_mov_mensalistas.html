@@ -1,13 +1,47 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% block menu %}
+<div class="row mb-3">
+	<div class="col-sm-12">
+		<ul class="nav nav-tabs nav-justified">
+			<li class="nav-item">
+    			<a class="nav-link btn btn-outline-primary" 
+    			href="{% url 'core_home' %}">Home</a>
+  			</li>
+  			<li class="nav-item dropdown">
+    			<a class="nav-link dropdown-toggle btn btn-outline-info active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastros</a>
+    			<div class="dropdown-menu text-center">
+      			<a class="dropdown-item" 
+		      	href="{% url 'core_lista_pessoas' %}">Pessoas</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item" 
+		      	href="{% url 'core_lista_veiculos' %}">Veículos</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item" 
+		      	href="{% url 'core_lista_mov_rotativos' %}">Rotativos</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item" 
+		      	href="{% url 'core_lista_mensalistas' %}">Mensalistas</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item btn btn-outline-info active" 
+		      	href="{% url 'core_lista_mov_mensalistas' %}">Movimento Mensalistas</a>
+    			</div>
+  			</li>
+  			<li class="nav-item">
+    			<a class="nav-link btn btn-outline-danger" href="#">Logout</a>
+  			</li>
+		</ul>
+	</div>
+</div>
+{% endblock %}
 {% block main %}
 <div class="row mb-3">
 	<div class="col-sm-12 text-center">
 		<h2>Lista Movimento Mensalistas</h2>
 	</div>
 </div>
-<div class="row">
-	<div class="col-sm-8 table table-bordered pt-1 pb-1 border border-primary"
+<div class="row pl-1 pr-1 pb-1 mb-2">
+	<div class="col-sm-12 border border-primary rounded pt-1 pb-1"
 	style="max-height: 306px">
 		<form class="" action="{% url 'core_cadastra_mov_mensalistas' %}" 
 		method="POST">
@@ -17,15 +51,38 @@
 			type="submit">Cadastrar</button>
 		</form>
 	</div>
-	<div class="col-sm-4 pt-1 text-center">
-		<div class="list-group">
-			{% for mensal in mov_mensalistas %}
-			<a href="{% url 'core_update_mov_mensalistas' mensal.id %}" class="list-group-item list-group-item-action btn btn-primary"
-			role="button" aria-pressed="true">
-   			{{ mensal.mensalista }}
-  			</a>
-			{% endfor %}
-		</div>
-	</div>
+</div>
+<div class="row">	
+	<div class="col-sm-12 pl-1 pr-1 text-center table-responsive">
+		<table class="table table-striped">
+  			<thead>
+    			<tr>
+      				<th scope="col">ID</th>
+				    <th scope="col">Veículo</th>
+				    <th scope="col">Data Início</th>
+				    <th scope="col">Valor Mês</th>
+				    <th scope="col">Data Pagamento</th>
+				    <th scope="col">Total</th>
+    			</tr>
+  			</thead>
+  			<tbody>
+					{% for mensal  in mov_mensalistas %}
+				<tr>
+      				<th scope="row">
+      					<a href="{% url 'core_update_mov_mensalistas' mensal.id %}" class="btn btn-primary active"
+						role="button" aria-pressed="true">
+   						{{mensal.id}}
+  						</a>
+      				</th>
+      				<td>{{mensal.mensalista.veiculo.placa}}</td>
+      				<td>{{mensal.mensalista.inicio}}</td>
+      				<td>{{mensal.mensalista.valor_mes}}</td>
+      				<td>{{mensal.dt_pgto}}</td>
+      				<td>{{mensal.total}}</td>
+    			</tr>
+ 					{% endfor %}
+  			</tbody>
+		</table>
+   	</div>
 </div>
 {% endblock %}

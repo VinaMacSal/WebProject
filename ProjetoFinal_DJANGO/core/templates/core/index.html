@@ -1,4 +1,45 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
+{% block menu %}
+<div class="row mb-3">
+	<div class="col-sm-12">
+		<ul class="nav nav-tabs nav-justified">
+			<li class="nav-item">
+    			<a class="nav-link btn btn-outline-primary active" 
+    			href="{% url 'core_home' %}">Home</a>
+  			</li>
+  			<li class="nav-item dropdown">
+    			<a class="nav-link dropdown-toggle btn btn-outline-info" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastros</a>
+    			<div class="dropdown-menu text-center">
+      			<a class="dropdown-item" 
+		      	href="{% url 'core_lista_pessoas' %}">Pessoas</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item" 
+		      	href="{% url 'core_lista_veiculos' %}">Veículos</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item" 
+		      	href="{% url 'core_lista_mov_rotativos' %}">Rotativos</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item" 
+		      	href="{% url 'core_lista_mensalistas' %}">Mensalistas</a>
+		      	<div class="dropdown-divider"></div>
+		      	<a class="dropdown-item" 
+		      	href="{% url 'core_lista_mov_mensalistas' %}">Movimento Mensalistas</a>
+    			</div>
+  			</li>
+  			<li class="nav-item">
+    			<a class="nav-link btn btn-outline-danger" href="#">Logout</a>
+  			</li>
+		</ul>
+	</div>
+</div>
+{% endblock %}
 {% block main %}
-{{mensagem}}
+<div class="row text-center">
+	<div class="col">
+		<h1>Seja Bem Vindo ao Sistema</h1>
+		<a href="/admin/login/?next=/sistema/">
+		Clique aqui para Entrar</a>
+	</div>
+</div>
 {% endblock %}
