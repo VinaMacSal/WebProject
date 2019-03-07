@@ -13,30 +13,40 @@
 </div>
 <div class="row mt-3 mb-3 pb-1 border border-dark rounded">
 	<div class="col-sm-12">
-		<form>
+		<form method="POST">
+			{% csrf_token %}
   			<div class="form-row">
     			<div class="form-group col-sm-12">
     				<label for="inputAddress">Nome</label>
-    				<input type="text" class="form-control" id="inputAddress" placeholder="Nome Completo">
+    				<input type="text" class="form-control" id="inputAddress" placeholder="Nome Completo" name="nome">
   				</div>
     			<div class="form-group col-sm-12">
       				<label for="inputEmail4">Email</label>
-      				<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      				<input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email">
     			</div>
   				<div class="form-group col-sm-12">
     				<label for="inputAddress">Telefone</label>
-    				<input type="text" class="form-control" id="inputAddress" placeholder="(xx)xxxx-xxxx">
+    				<input type="text" class="form-control" id="inputAddress" placeholder="(xx)xxxx-xxxx" name="telefone">
   				</div>
   				<div class="form-group col-sm-12">
     				<label for="exampleFormControlTextarea1">
     				Mensagem</label>
-    				<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    				<textarea class="form-control" id="exampleFormControlTextarea1" cols="60" rows="5" name="mensagem">
+    				</textarea>
   				</div>
 			</div>
-  			<a class="btn btn-primary" href="#">Enviar</a>
+  			<button type="submit" class="btn btn-primary">Enviar</button>
 		</form>
+
 	</div>
 </div>
+{% if mensagem != '' %}
+<div class="row mt-3 alert-primary">
+	<div class="col-sm-12 text-center">
+		<p>{{mensagem}}</p>
+	</div>
+</div>
+{% endif %}
 <div class="row mt-3 mb-3">
 	<div class="col-sm-12 text-center" style="background-color: #3B8686">
 		<h2>Informações de Contato</h2>
